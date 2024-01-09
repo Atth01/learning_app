@@ -1,0 +1,87 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-header">
+    <ion-title class="ion-text-light custom-title">Add_Iuran</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToInfoPage()" style="color:aliceblue">
+        <ion-icon style="color:white" slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start" color="light" class="custom-menu-button">
+      <ion-menu-button style="color:aliceblue"></ion-menu-button>
+    </ion-buttons>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" style="--background: url('../../assets/bg1.jpg') center center / cover no-repeat;" [fullscreen]="true">
+  <div class="form-container">
+    <ion-list>
+      <ion-item>
+        <!-- <label class="form-label text-light">Kode Blok</label> -->
+        <ion-select [(ngModel)]="kd_blok" label="Kode Blok" placeholder="Kode Blok">
+            <ion-select-option *ngFor="let blok of Blok" value="{{blok.kd_blok}}">{{blok.nama_blok}} - {{blok.no_blok}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  
+    <div class="form-group">
+      <label class="form-label text-light">Kode Penduduk</label>
+      <input class="form-input" type="textbox" [(ngModel)]="kd_penduduk" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label text-light">Jenis Pembayaran</label>
+      <select class="form-input" [(ngModel)]="jenis_pembayaran" required>
+        <option value="Kas">Kas</option>
+        <option value="Lainnya">Lainnya</option>
+      </select>
+    </div>
+    
+
+    <div class="form-group">
+      <label class="form-label text-light">Keterangan</label>
+      <input class="form-input" type="textbox" [(ngModel)]="keterangan" required>
+    </div>
+  
+    <div class="form-group">
+      <label class="form-label text-light">Tanggal_Pembayaran</label>
+      <input class="form-input" type="date" [(ngModel)]="tgl_pembayaran" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label text-light">Kas Bulan</label>
+      <select class="form-input" [(ngModel)]="kas_bulan" required>
+        <option value="1">Januari</option>
+        <option value="2">Februari</option>
+        <option value="3">Maret</option>
+        <option value="4">April</option>
+        <option value="5">Mei</option>
+        <option value="6">Juni</option>
+        <option value="7">Juli</option>
+        <option value="8">Agustus</option>
+        <option value="9">September</option>
+        <option value="10">Oktober</option>
+        <option value="11">November</option>
+        <option value="12">Desember</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label class="form-label text-light">Kas Tahun</label>
+      <select class="form-input" [(ngModel)]="kas_tahun" required>
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+    </div>
+    
+
+    <div class="d-block mt-3 mx-2 ion-item-no-lines mb-3 rounded">
+      <ion-label class="form-label text-light">Bukti pembayaran</ion-label>
+      <ion-input (change)="getFile($event)" class="mt-2" type="file" style="background-color: transparent; border: none;"></ion-input>
+    </div>
+  
+    <div class="form-group mt-3">
+      <button (click)="Insert()" class="form-button">
+        Tambah Data
+      </button>
+    </div>
+  </div>
+</ion-content>

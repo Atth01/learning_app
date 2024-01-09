@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-header">
+    <ion-title class="ion-text-light custom-title">Blok</ion-title>
+    <ion-buttons slot="start" color="light" class="custom-menu-button">
+      <ion-menu-button style="color:white"></ion-menu-button>
+    </ion-buttons>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background: url('../../assets/bg1.jpg') center center / cover no-repeat;" [fullscreen]="true">
+  <ion-refresher slot="fixed">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="search-bar-container">
+    <ion-searchbar
+      search-icon="search-circle"
+      show-clear-button="never"
+      value="Never Show"
+      placeholder="Search"
+      [(ngModel)]="searchNIK"
+      (ionInput)="searchByNIK()"
+    ></ion-searchbar>
+    <!-- <button class="search" (click)="searchByNIK()">Cari</button> -->
+  </div> 
+  <div class="tombol">
+    <button size="light" class=" btn w-100 h-500 rounded" shape="round" [routerLink]="['/addblok']">
+      <ion-icon name="add-circle-outline" class="w-200 h-200"></ion-icon></button>
+    </div>
+  <!-- <ion-card class="notification-card" *ngFor="let data of blokData">
+    <ion-card-header>
+      <ion-card-title class="white-text judul">{{ data.kd_blok }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p class="tulisan">Nama Blok: {{ data.nama_blok }}</p>
+      <p class="tulisan">No Blok: {{ data.no_blok }}</p>
+      <ion-button shape="round" expand="full" color="success" (click)="edit(data.kd_blok)">Edit</ion-button>
+      <ion-button shape="round" expand="full" color="danger" (click)="confirmDelete(data.kd_blok)">Delete</ion-button>
+    </ion-card-content>
+  </ion-card> -->
+  <ion-card class="table-card" *ngFor="let data of blokData">
+    <!-- <ion-card-header>
+      <ion-card-title class="judul">{{ data.kd_blok }}</ion-card-title>
+    </ion-card-header> -->
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label slot="start">Kode Blok:</ion-label>
+          <ion-label>{{ data.kd_blok }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label slot="start">Nama Blok:</ion-label>
+          <ion-label>{{ data.nama_blok }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label slot="start">Nomor Blok:</ion-label>
+          <ion-label>{{ data.no_blok }}</ion-label>
+        </ion-item>
+        <!-- <ion-item>
+          <ion-label slot="start">Tanggal:</ion-label>
+          <ion-label>{{ data.tgl_info }}</ion-label>
+        </ion-item> -->
+      </ion-list>
+
+      <ion-button color="success" (click)="edit(data.kd_blok)">
+        <ion-icon slot="start" name="create-outline"></ion-icon>
+        Update
+      </ion-button>
+      <ion-button color="danger" (click)="confirmDelete(data.kd_blok)">
+        <ion-icon slot="end" name="trash-outline"></ion-icon>
+        Delete
+      </ion-button>      
+    </ion-card-content>
+  </ion-card>
+</ion-content>

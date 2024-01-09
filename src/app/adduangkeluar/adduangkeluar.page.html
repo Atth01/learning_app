@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-header">
+    <ion-title class="ion-text-light custom-title">Add_Uang_Keluar</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToInfoPage()" style="color:aliceblue">
+        <ion-icon style="color:white" slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start" color="light" class="custom-menu-button">
+      <ion-menu-button style="color:aliceblue"></ion-menu-button>
+    </ion-buttons>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" style="--background: url('../../assets/bg1.jpg') center center / cover no-repeat;" [fullscreen]="true">
+  <div class="container d-block justify-content-center py-3">
+    <ion-list>
+      <ion-item>
+        <ion-select [(ngModel)]="kd_pengeluaran" label="Kode Pengeluaran" placeholder="Kode Pengeluaran">
+            <ion-select-option *ngFor="let kode of kd_pengeluaran" value="{{kode.kd_pengeluaran}}">{{kode.kd_pengeluaran}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <ion-label position="stacked">Keterangan</ion-label>
+      <ion-input  [(ngModel)]="keterangan" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Tanggal Keluar</ion-label>
+      <ion-input [(ngModel)]="tanggal_keluar" type="date" placeholder="input Tanggal Keluar"></ion-input>
+    </ion-item>
+    <ion-item>
+    <div class="d-block mt-3 mx-2 ion-item-no-lines mb-3 rounded">
+      <ion-label>Bukti pengeluaran</ion-label>
+      <ion-input (change)="getFile($event)" class="mt-2" type="file" style="background-color: transparent; border: none;"></ion-input>
+    </div>
+    </ion-item>
+    <div class="form-group mt-3">
+      <button (click)="Insert()" class="form-control btn" style="background: linear-gradient(to bottom, #00e51f, #005d2a); color:white;">
+        Tambah Data
+      </button>
+    </div>

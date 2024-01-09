@@ -1,0 +1,76 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-header">
+    <ion-title class="ion-text-light custom-title">Pesan</ion-title>
+    <ion-buttons slot="start" color="light" class="custom-menu-button">
+      <ion-menu-button style="color:white"></ion-menu-button>
+    </ion-buttons>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background: url('../../assets/bg1.jpg') center center / cover no-repeat;" [fullscreen]="true">
+  <!-- <ion-input
+  type="text"
+  [(ngModel)]="searchNIK"
+  placeholder="Search NIK"
+  ></ion-input>
+  <ion-button color="primary" (click)="searchByNIK()">
+  Search
+  </ion-button> -->
+  <div class="search-bar-container">
+    <ion-searchbar
+      search-icon="search-circle"
+      show-clear-button="never"
+      value="Never Show"
+      placeholder="Search"
+      [(ngModel)]="searchNIK"
+      (ionInput)="searchByNIK()"
+    ></ion-searchbar>
+    <!-- <button class="search" (click)="searchByNIK()">Cari</button> -->
+  </div>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div class="tombol">
+    <button size="light" class=" btn w-100 h-500 rounded" shape="round" [routerLink]="['/addpesan']">
+      <ion-icon name="add-circle-outline" class="w-200 h-200"></ion-icon></button>
+    </div>
+  <!-- <ion-card class="notification-card" *ngFor="let data of infoPesan">
+    <ion-card-header>
+      <ion-card-title class="white-text">{{ data.kd_pesan }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Pesan: {{ data.pesan }}</p>
+      <p>Tanggal Pesan: {{ data.tgl_pesan }}</p>
+      <ion-button shape="round" expand="full" color="success" (click)="edit(data.kd_pesan)"> Edit</ion-button>
+      <ion-button shape="round" expand="full" color="danger" (click)="confirmDelete(data.kd_pesan)">Delete</ion-button>
+
+    </ion-card-content>
+  </ion-card> -->
+  <ion-card class="table-card" *ngFor="let data of infoPesan">
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label slot="start">Kode Pesan:</ion-label>
+          <ion-label>{{ data.kd_pesan }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label slot="start">Pesan:</ion-label>
+          <ion-label>{{ data.pesan }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label slot="start">Tanggal:</ion-label>
+          <ion-label>{{ data.tgl_pesan }}</ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-button color="success" (click)="edit(data.kd_pesan)">
+        <ion-icon slot="start" name="create-outline"></ion-icon>
+        Update
+      </ion-button>
+      <ion-button color="danger" (click)="confirmDelete(data.kd_pesan)">
+        <ion-icon slot="end" name="trash-outline"></ion-icon>
+        Delete
+      </ion-button>      
+    </ion-card-content>
+  </ion-card>
+</ion-content>

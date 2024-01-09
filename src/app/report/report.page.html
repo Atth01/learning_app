@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-header">
+    <ion-title class="ion-text-light custom-title">Diagram</ion-title>
+    <ion-buttons slot="start" color="light" class="custom-menu-button">
+      <ion-menu-button style="color:aliceblue"></ion-menu-button>
+    </ion-buttons>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background: url('../../assets/bg1.jpg') center center / cover no-repeat;" [fullscreen]="true">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="chart-container">
+        <h2 class="text-title">Report Uang Keluar</h2>
+        <canvas id="piechart1"></canvas>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="chart-container">
+        <h2 class="text-title">Report Iuran</h2>
+        <canvas id="piechart2"></canvas>
+      </div>
+    </div>
+  </div>
+</ion-content>
+

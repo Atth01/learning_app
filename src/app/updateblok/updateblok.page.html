@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-header">
+    <ion-title class="ion-text-light custom-title">Update_Blok</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="Back()" style="color:aliceblue">
+        <ion-icon style="color:white" slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start" color="light" class="custom-menu-button">
+      <ion-menu-button style="color:aliceblue"></ion-menu-button>
+    </ion-buttons>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background: url('../../assets/bg1.jpg') center center / cover no-repeat;" [fullscreen]="true">
+  <div class="container d-block justify-content-center">
+    <ion-item>
+      <ion-label position="stacked">Kode Blok</ion-label>
+      <ion-input [(ngModel)]="kd_blok" type="text" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Nama Blok</ion-label>
+      <ion-input [(ngModel)]="nama_blok" type="text" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">No_Blok</ion-label>
+      <ion-input [(ngModel)]="no_blok" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Status</ion-label>
+      <ion-input [(ngModel)]="status" type="text"></ion-input>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label position="stacked">Status</ion-label>
+      <ion-input [(ngModel)]="status" type="text"></ion-input>
+    </ion-item> -->
+    <div class="form-group mt-3">
+      <button class="form-control btn" (click)="Update()" style="background: linear-gradient(to bottom, #00e51f, #005d2a); color:white;">
+        Update Data
+      </button>
+    </div>
+  </div>
+</ion-content>
+

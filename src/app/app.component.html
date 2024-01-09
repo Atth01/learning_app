@@ -1,3 +1,31 @@
+<!-- app.component.html -->
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-button (click)="toggleMenu()">
+    <ion-icon slot="icon-only" name="menu"></ion-icon>
+  </ion-button>
+
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay" class="custom-menu">
+      <ion-content>
+        <div class="logo">
+          <img src="../assets/green.png" alt="Logo">
+        </div>
+        <ion-list>
+          <ion-menu-toggle *ngFor="let page of appPages">
+            <ion-item [routerLink]="page.url" routerDirection="root" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon slot="start" [name]="page.icon"></ion-icon>
+              <ion-label>{{ page.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <!-- <div class="social-media">
+          <ion-icon name="logo-facebook" (click)="navigateToSocialMedia('facebook')"></ion-icon>
+          <ion-icon name="logo-twitter" (click)="navigateToSocialMedia('twitter')"></ion-icon>
+          <ion-icon name="logo-instagram" (click)="navigateToSocialMedia('instagram')"></ion-icon>
+          <ion-icon name="logo-youtube" (click)="navigateToSocialMedia('youtube')"></ion-icon>
+        </div> -->
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>

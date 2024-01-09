@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-header">
+    <ion-title class="ion-text-light custom-title">Update User</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="Back()" style="color: aliceblue">
+        <ion-icon style="color: white" slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start" color="light" class="custom-menu-button">
+      <ion-menu-button style="color: aliceblue"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background: url('../../assets/bg1.jpg') center center / cover no-repeat;" [fullscreen]="true">
+  <div class="container d-block justify-content-center">
+    <!-- <ion-item>
+      <ion-label position="stacked">Kode Penduduk</ion-label>
+      <ion-input [(ngModel)]="kd_penduduk" type="text"></ion-input>
+    </ion-item> -->
+    <!-- <ion-item>
+      <ion-label position="stacked">Kode User</ion-label>
+      <ion-input [(ngModel)]="kd_user" type="text"></ion-input>
+    </ion-item> -->
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input [(ngModel)]="email" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Username</ion-label>
+      <ion-input [(ngModel)]="username" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input [(ngModel)]="password" type="text"></ion-input>
+    </ion-item>
+    <div class="form-group mt-3">
+      <button class="form-control btn" (click)="Update()" style="background: linear-gradient(to bottom, #00e51f, #005d2a); color:white;">
+        Update Data
+      </button>
+    </div>
+  </div>
+</ion-content>

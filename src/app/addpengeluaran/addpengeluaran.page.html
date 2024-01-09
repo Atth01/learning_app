@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="custom-header">
+    <ion-title class="ion-text-light custom-title">Add Pengeluaran</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToPengeluaranPage()" style="color:aliceblue">
+        <ion-icon style="color:white" slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start" color="light" class="custom-menu-button">
+      <ion-menu-button style="color:aliceblue"></ion-menu-button>
+    </ion-buttons>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background: url('../../assets/bg1.jpg') center center / cover no-repeat;" [fullscreen]="true">
+  <div class="form-container">
+    <div class="form-group">
+      <label class="form-label">Nama pengeluaran</label>
+      <input class="form-input" type="text" [(ngModel)]="nama_pengeluaran" required>
+    </div>
+  
+    <!-- <div class="form-group">
+      <label class="form-label">Info</label>
+      <input class="form-input" type="textbox" [(ngModel)]="informasi" required>
+    </div>
+  
+    <div class="form-group">
+      <label class="form-label">Tanggal_Info</label>
+      <input class="form-input" type="date" [(ngModel)]="tgl_info" required>
+    </div> -->
+  
+    <div class="form-group mt-3">
+      <button (click)="addNewPengeluaran()" class="form-button">
+        Tambah Data
+      </button>
+    </div>
+  </div>
+  
+</ion-content>
